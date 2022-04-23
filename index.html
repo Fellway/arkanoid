@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+
+.buttons {
+    text-align: center;
+    width:480px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+#points {
+    position: absolute;
+    bottom: 100px;
+    text-align: center;
+    margin: 0 auto;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+</style>
+</head>
+<body onload="startGame()">
+    <div id="gameArea">
+        <canvas id="canvas">
+
+        </canvas>
+        <div id="points">
+
+        </div>
+        <div class="buttons">
+            <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+            <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
