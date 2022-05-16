@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<style>
-canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border:1px solid #d3d3d3;
-    background-color: #f1f1f1;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            background-color: rgba(0, 136, 255, 0.34);
+        }
 
-.buttons {
-    text-align: center;
-    width:480px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-}
+        #game-over-screen {
+            width: 500px;
+            height: 400px;
+        }
 
-#points {
-    position: absolute;
-    bottom: 100px;
-    text-align: center;
-    margin: 0 auto;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+        #canvas, #start-screen, #game-over-screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+        }
 
-</style>
+        #buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #game, #game-over-screen {
+            display: none;
+        }
+
+        .start-game-button {
+            border-style: none;
+            background-color: #fffde7;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 50px;
+        }
+    </style>
 </head>
-<body onload="startGame()">
-    <div id="gameArea">
+<body>
+    <div id="start-screen">
+        <button class="start-game-button" onmousedown="startGame()">START GAME</button>
+    </div>
+
+    <div id="game">
         <canvas id="canvas">
 
         </canvas>
-        <div id="points">
-
-        </div>
-        <div class="buttons">
+        <div id="buttons">
             <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-            <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+            <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
+            <br><br>
         </div>
+    </div>
+
+    <div id="game-over-screen">
+        <div>You lost!</div>
+        <div>Your score: <span id="score"></span></div>
+        <button onmousedown="saveScore()">Save score</button>
     </div>
 </body>
 <script src="script.js"></script>
