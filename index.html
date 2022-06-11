@@ -4,15 +4,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         body {
-            background-color: rgba(0, 136, 255, 0.34);
+            background: url('/assets/background.jpg')
         }
 
         #game-over-screen {
             width: 500px;
             height: 400px;
+            background-color:aliceblue;
         }
 
-        #canvas, #start-screen, #game-over-screen {
+        canvas, #start-screen, #game-over-screen {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -31,10 +32,18 @@
             display: none;
         }
 
+        #score {
+            position: absolute;
+            left: 50%;
+            font-size: 60px;
+            transform: translateX(-50%);
+        }
+
         .start-game-button {
             border-style: none;
-            background-color: #fffde7;
+            background-color: aliceblue;
             font-size: 2rem;
+            border-radius: 10px;
             cursor: pointer;
             padding: 50px;
         }
@@ -42,25 +51,23 @@
 </head>
 <body>
     <div id="start-screen">
-        <button class="start-game-button" onmousedown="startGame()">START GAME</button>
+        <button id="start" class="start-game-button">START GAME</button>
     </div>
 
     <div id="game">
-        <canvas id="canvas">
+        <div id="score">
+            Score: 0
+        </div>
+        <div id="playArea">
 
-        </canvas>
-        <div id="buttons">
-            <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
-            <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button>
-            <br><br>
         </div>
     </div>
 
     <div id="game-over-screen">
         <div>You lost!</div>
-        <div>Your score: <span id="score"></span></div>
+        <div>Your score: <span id="finalScore"></span></div>
         <button onmousedown="saveScore()">Save score</button>
     </div>
 </body>
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 </html>
